@@ -20,6 +20,9 @@ def deep_sorted(x: any) -> str:
             deep_sorted(i) for i in sorted(x, key=deep_sorted)
         ) + "}"
 
+    if isinstance(x, str) and x.isdigit():
+        return x
+
     return repr(x)
 
 if __name__ == '__main__':
